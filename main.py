@@ -42,9 +42,36 @@ while justtime != "09:50" or justtime != "13:50" or justtime != "15:20" or justt
     current_time = now.strftime("%H:%M / %A")
     justtime = now.strftime("%H:%M")
     
-    justtime == "09:50" or justtime == "13:50" or justtime == "15:20" or justtime == "16:50" :
-        print("Class is going to start in 10 mins ")
+    if justtime == "09:50" or justtime == "13:50" or justtime == "15:20" or justtime == "16:50" :
+        print("Class is going to start in 10 mins")
         break
+
+
+def gmail_login():
+    driver.get("https://accounts.google.com/ServiceLoginservice=mail&passive=true&rm=false&continue=https://mail.google.com/mail/&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1#identifier")
+    time.sleep(10)
+
+    driver.find_element_by_xpath("//input[@name='identifier']").send_keys("####EMAIL ADDRESS HERE####")
+
+    time.sleep(4)
+
+    ######
+
+    driver.find_element_by_xpath("//*[@id='identifierNext']/div/button/div[2]").click()
+    time.sleep(5)
+
+    ######
+
+    driver.find_element_by_xpath("//input[@name='password']").send_keys("####your email password here####")
+
+    time.sleep(5)
+
+    ####
+    
+    driver.find_element_by_xpath("//*[@id='passwordNext']/div/button").click()
+    time.sleep(5)
+
+    
 
 
 
