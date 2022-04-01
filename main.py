@@ -15,6 +15,8 @@ current_time = now.strftime("%H:%M / %A")
 justtime = now.strftime("%H:%M")
 
 
+link = "" #### meeting link
+
 op = Options()
 
 #op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -71,11 +73,37 @@ def gmail_login():
     driver.find_element_by_xpath("//*[@id='passwordNext']/div/button").click()
     time.sleep(5)
 
-    
+    driver.get(link)
+    driver.refresh()
+
+    time.sleep(10)
+
+
+    #video off
+    driver.find_element_by_xpath("//*[@id='yDmH0d']/c-wiz/div/div/div[4]/div[3]/div/div[2]/div/div/div[1]/div[1]/div[3]/div[2]/div/div").click()
+
+    #audio off
+    driver.find_element_by_xpath("//*[@id='yDmH0d']/c-wiz/div/div/div[4]/div[3]/div/div[2]/div/div/div[1]/div[1]/div[3]/div[1]/div/div/div").click()
+
+    time.sleep(10)
+
+    #join
+    driver.find_element_by_xpath("//*[@id='yDmH0d']/c-wiz/div/div/div[4]/div[3]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/span").click()    
 
 
 
-driver = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options= op)
 
-driver.get("https://youtube.com")
-print(driver.page_source)
+if current_time == "09:50 / Monday" or current_time == "16:50 / Tuesday" or current_time == "13:50 / Thursday" or current_time == "15:20 / Friday" :
+
+    link = "" #### meeting link
+
+    driver = webdriver.Chrome(chrome_options= op, executable_path='chromedriver')
+
+    gmail_login()
+
+else:
+    print("no class right now")
+
+
+#driver.get("https://youtube.com")
+#print(driver.page_source)
