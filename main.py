@@ -36,6 +36,16 @@ op.add_experimental_option("prefs", {
     "profile.default_content_setting_values.notifications": 1,
 })
 
+while justtime != "09:50" or justtime != "13:50" or justtime != "15:20" or justtime != "16:50" :
+    time.sleep(20)
+    now = datetime.datetime.now()
+    current_time = now.strftime("%H:%M / %A")
+    justtime = now.strftime("%H:%M")
+    
+    justtime == "09:50" or justtime == "13:50" or justtime == "15:20" or justtime == "16:50" :
+        print("Class is going to start in 10 mins ")
+        break
+
 
 
 driver = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options= op)
