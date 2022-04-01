@@ -1,5 +1,19 @@
-import os
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+import datetime
+import time
+import signal
+
+signal.alarm(720)
+
+now = datetime.datetime.now()
+
+current_time = now.strftime("%H:%M / %A")
+
+
+justtime = now.strftime("%H:%M")
+
 
 op = webdriver.ChromeOptions()
 op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
